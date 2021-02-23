@@ -3,8 +3,13 @@ require_relative "./lib/models/Speaker.rb"
 require_relative "./lib/models/Talk.rb"
 
 event = Event.new("My event")
-speaker = Speaker.new("John")
+john = Speaker.new("John")
+james = Speaker.new("James")
 
-talk = Talk.new("Joint", "9:00am", "10:00am", speaker)
+talk1 = Talk.new("Js Worlds", "9:00am", "11:00am", john)
+talk2 = Talk.new("Ruby World", "10:00am", "11:00am", james)
 
-pp talk
+event.add_event(talk1)
+event.add_event(talk2)
+
+pp event
