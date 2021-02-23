@@ -8,32 +8,21 @@ class Menu
     @speakers = []
   end
 
+  # Run the menu
   def run(commands)
     case
     when commands[0] == "CREATE"
       choice(commands)
     when commands[0] == "PRINT"
       event_name = commands[2]
-
-      if @events.length == 0
-        puts "No event found"
-      else 
-        pp @events
-      end
+      list_events(event_name)
     else 
       puts "Invalid command"
     end
   end
 
-  def list_events(event_name)
 
-  end
-
-  def check_speaker(speaker)
-    speakers = @speakers.map {|speaker| speaker.speaker_name}
-    speakers.include?(speaker) ? speaker : Speaker.new(speaker)
-  end
-
+  # Menu choice base on use commands
   def choice(commands)
     case
     when commands[1] == "EVENT"
@@ -49,5 +38,27 @@ class Menu
         end
       end
     end
+  end
+
+  # List all talks for specific event
+  def list_events(event_name)
+    # Select event base on event name passed by user
+    select_event = @events.select { |event| event.event_name == event_name}
+    # Map the event and display all talks for that event in a readable format
+    talks = select_event.map {|e| e.talks}
+    talks.each do |talk|
+      puts "***" * 10
+      talk.each do |x|
+        puts "#{x.start_time} - #{x.end_time}"
+        puts "  #{x.talk_name} presented by #{x.speaker.speaker_name}"
+      end
+      puts "***" * 10
+    end
+  end
+
+  # Check if speaker exist, if not then create new speaker
+  def check_speaker(speaker)
+    speakers = @speakers.map {|speaker| speaker.speaker_name}
+    speakers.include?(speaker) ? speaker : Speaker.new(speaker)
   end
 end

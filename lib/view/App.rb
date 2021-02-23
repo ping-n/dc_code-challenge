@@ -41,7 +41,7 @@ class App
     puts "1: Create new event"
     puts "2: Create new speaker"
     puts "3: Create new talk"
-    puts "4: View all Talks for an Event"
+    puts "4: View all talks for an event"
     puts "5: Exit"
 
     choice = gets.chomp.to_i
