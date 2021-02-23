@@ -28,6 +28,7 @@ class Menu
     when commands[1] == "EVENT"
       @events.push(Event.new(commands[2].split("_").join(" ")))
       puts "You have successfully created a new Event."
+      pp @events
     when commands[1] == "SPEAKER"
       @speakers.push(Speaker.new(commands[2]))
       puts "You have successfully added a new Speaker."
@@ -49,7 +50,7 @@ class Menu
     talks = select_event.map {|e| e.talks}
     talks.each do |talk|
       # Sort the talks by start time
-      talk.sort_by! { |s| s.start_time[/\d+/].to_i}
+      talk.sort_by! { |s| s.start_time.to_i}
       # iterate through talks and format according to brief
       talk.each do |x|
         puts "#{x.start_time} - #{x.end_time}"
