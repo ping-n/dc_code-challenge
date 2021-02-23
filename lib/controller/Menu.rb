@@ -26,15 +26,16 @@ class Menu
   def choice(commands)
     case
     when commands[1] == "EVENT"
-      @events.push(Event.new(commands[2]))
+      @events.push(Event.new(commands[2].split("_").join(" ")))
       puts "You have successfully created a new Event."
     when commands[1] == "SPEAKER"
       @speakers.push(Speaker.new(commands[2]))
       puts "You have successfully added a new Speaker."
     when commands[1] == "TALK"
       @events.each do |event|
+        # Add talks to the correct event
         if event.event_name == commands[2]
-          event.add_talks(Talk.new(commands[3], commands[4], commands[5], check_speaker(commands[6])))
+          event.add_talks(Talk.new(commands[3].split("_").join(" "), commands[4], commands[5], check_speaker(commands[6])))
         end
       end
     end
@@ -47,7 +48,9 @@ class Menu
     # Map the event and display all talks for that event in a readable format
     talks = select_event.map {|e| e.talks}
     talks.each do |talk|
-      puts "***" * 10
+      # Sort the talks by start time
+      talk.sort_by! { |s| s.start_time[/\d+/].to_i}
+      # iterate through talks and format according to brief
       talk.each do |x|
         puts "#{x.start_time} - #{x.end_time}"
         puts "  #{x.talk_name} presented by #{x.speaker.speaker_name}"
