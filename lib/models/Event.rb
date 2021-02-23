@@ -9,7 +9,6 @@ class Event
   #Adding new talk to the event
   def add_talks(talk)
     end_time = @talks.map { |talk| talk.end_time}
-
     # Check if end_time already exist
     if end_time.include?(talk.end_time) 
       puts "Time slot already filled."
