@@ -1,5 +1,5 @@
 class Talk
-  attr_reader :talk_name, :start_time, :end_time, :speaker
+  attr_accessor :talk_name, :start_time, :end_time, :speaker
 
   def initialize(name, start_time, end_time, speaker)
     @talk_name = name

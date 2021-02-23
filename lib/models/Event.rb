@@ -1,21 +1,21 @@
-require_relative "../helper/Helper.rb"
-
 class Event
   attr_accessor :event_name, :talks
 
   def initialize(name)
     @event_name = name
     @talks = []
-    @helper = Helper.new
   end
 
-  def add_event(talk)
-    if @helper.check_timeslot(@talks, talk)
-      puts "The time slot #{talk.start_time} to #{talk.end_time} is already filled."
-      puts "Please choose a different time slot."
+  #Adding new talk to the event
+  def add_talks(talk)
+    end_time = @talks.map { |talk| talk.end_time}
+
+    # Check if end_time already exist
+    if end_time.include?(talk.end_time) 
+      puts "Time slot already filled."
+      puts "Please enter a different time frame"
     else
-      @talks.push(talk)
-      puts "#{talk.talk_name} was added successfully."
+      @talks << talk
     end
   end
 end
