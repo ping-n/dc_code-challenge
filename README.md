@@ -3,10 +3,10 @@
 ## Guide
 
 ```
-1: Make Ruby is install on your device
+1: Make sure Ruby is installed on your device
 2: CD to the root directory
 3: ruby app.rb
-4: Follow the examples below
+4: Follow the prompts from the CLI
 
 ** EVENT_NAME and TALK_NAME
 please use _ if you want white space
