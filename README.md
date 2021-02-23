@@ -1,5 +1,29 @@
 # README
 
+## Guide
+
+```
+1: Make Ruby is install on your device
+2: CD to the root directory
+3: ruby app.rb
+4: Follow the examples below
+
+** EVENT_NAME and TALK_NAME
+please use _ if you want white space
+```
+
+## Bugs
+
+Please strictly follow the examples below when creating new TALK otherwise data will be inputted in incorrect column.
+
+```
+# Example
+CREATE TALK event_name talk_name start_time end_time speaker_name
+
+CREATE TALK Javascript Hello_World 9:00am 10:10am John
+```
+
+
 ### Overview
 There is an events company called Mad Events that specializes in virtual conferencing.
 
@@ -20,17 +44,17 @@ Build a CLI program that meets the above requirements and will accept the follow
 ### Example
 `CREATE EVENT an_event`
 `CREATE SPEAKER John`
-`CREATE TALK an_event 'My Talk' 9:00am 10:00am John`
+`CREATE TALK an_event 'My_Talk' 9:00am 10:00am John`
 
 `CREATE EVENT new_event`
 `CREATE SPEAKER Sam`
-`CREATE TALK new_event 'hello world' 2:00pm 2:30pm Sam`
+`CREATE TALK new_event 'hello_world' 2:00pm 2:30pm Sam`
 
 `CREATE SPEAKER Bob`
-`CREATE TALK an_event 'code challenges' 2:00pm 2:30pm Bob`
+`CREATE TALK an_event 'code_challenges' 2:00pm 2:30pm Bob`
 
 `CREATE SPEAKER Ben`
-`CREATE TALK an_event 'Joint Talk' 10:30am 12:00am Ben`
+`CREATE TALK an_event 'Joint_Talk' 10:30am 12:00am Ben`
 `PRINT TALKS an_event`
 ```
 9:00am - 10:00am
@@ -45,13 +69,3 @@ Build a CLI program that meets the above requirements and will accept the follow
 2:00pm - 2:30pm
   hello world presented by Sam
 ```
-
-### Notes
-- use Ruby
-- try not to spend more than 2 hours maximum
-- there is no need for any GUIs; we're more interested in your approach to solving the given task, not how fancy you can make it look
-- don't use any frameworks (rails, spring etc), or any external jars/gems (unless it's for testing or build/dependency mgt)
-
-When you've finished, send through the link to your github-repo.
-
-Happy coding!!!
