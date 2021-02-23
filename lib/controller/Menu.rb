@@ -28,7 +28,6 @@ class Menu
     when commands[1] == "EVENT"
       @events.push(Event.new(commands[2].split("_").join(" ")))
       puts "You have successfully created a new Event."
-      pp @events
     when commands[1] == "SPEAKER"
       @speakers.push(Speaker.new(commands[2]))
       puts "You have successfully added a new Speaker."
